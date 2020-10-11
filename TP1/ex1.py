@@ -201,7 +201,7 @@ ax1 = fig.add_subplot(121)
 ax2 = fig.add_subplot(122, projection='3d')
 
 # Left plot
-CS = ax1.contour(theta0, theta1, Z, np.geomspace(Z.min(),Z.max(),10), cmap=plt.cm.jet, color='black')
+CS = ax1.contour(theta0, theta1, Z, np.geomspace(Z.min(),Z.max(),10), cmap=plt.cm.jet)
 plt.clabel(CS, inline=1, fontsize=10)
 ax1.scatter(theta_history[0,:],theta_history[1,:], c='r')
 ax1.grid()

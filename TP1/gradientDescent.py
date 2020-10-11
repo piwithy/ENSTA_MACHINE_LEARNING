@@ -20,11 +20,10 @@ def gradientDescent(X, y, theta, alpha, num_iters):
         #
         # Hint: While debugging, it can be useful to print out the values
         #       of the cost function (computeCost) and gradient here.
-        # TODO imple -> formule 4.2.1
         summ = 0.
         for j in range(m):
-            h_theta = theta[0][0] + theta[1][0] * X[j][1]
-            summ += (h_theta - y[j])*X[j, :].reshape(2,1)
+            h_theta = np.dot(X[j, :], theta)
+            summ += (h_theta - y[j])*X[j, :].reshape(theta.shape)
         theta -= (alpha / m) * summ
 
         cost_history[i] = computeCost(X, y, theta)

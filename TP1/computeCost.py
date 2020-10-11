@@ -1,4 +1,5 @@
-import time
+import numpy as np
+
 
 def computeCost(X, y, theta):
     """
@@ -10,13 +11,10 @@ def computeCost(X, y, theta):
 
     # ====================== YOUR CODE HERE ======================
     # Instructions: Compute the cost of a particular choice of theta
-    t_start = time.time()
     for i in range(m):
-        h_theta = theta[0][0] + theta[1][0] * X[i][1]
+        h_theta = np.dot(X[i, :], theta)
         J += (h_theta - y[i]) ** 2
     J *= 1 / (2 * m)
-    t_stop = time.time()
-    # print("J calculation over " + str(m) + " items: ~" + str((t_stop-t_start)/1000) + "ms")
     #   ============================================================
 
     return J

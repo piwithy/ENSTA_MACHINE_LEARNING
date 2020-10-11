@@ -95,6 +95,7 @@ ax.set_xlabel('iteration number')
 ax.set_ylabel(r'Cost J($\theta$)')  
 ax.set_title('Error vs. Training Epoch (number of iters)')  
 fig.show()
+plt.show()
 
 
 # Display gradient descent's result
@@ -103,12 +104,11 @@ print('Theta computed from gradient descent: ')
 print(theta)
 
 # Estimate the price of a 1650 sq-ft, 3 br house
-price = np.array([[1,1650,3]]).dot(theta)
+price = np.array([[1, 1650, 3 ]]).dot(theta)
 
 print('\n -------------------------- \n')
 print('Predicted price of a 1650 sq-ft, 3 br house')
-print('(using gradient descent): ')
-print(price)
+print("(using gradient descent):\n $%f\n" % price)
 
 
 

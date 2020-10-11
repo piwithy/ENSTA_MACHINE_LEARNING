@@ -23,6 +23,5 @@ def plotData(X, y):
     plt.grid(True)  # Always plot.grid true!
     plt.ylabel('Profit in $10,000s')
     plt.xlabel('Population of City in 10,000s')
-    plt.show()
 
 # ============================================================
