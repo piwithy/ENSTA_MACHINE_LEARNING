@@ -45,7 +45,7 @@ def plotDecisionBoundary(theta, X, y, Lambda):
         myfmt = { 0:'Lambda = %d'% Lambda}
         plt.clabel(mycontour, inline=1, fontsize=15, fmt=myfmt)
         plt.title("Decision Boundary")
-        plt.show()
+        # plt.show()
 
 def mapFeature(x1col, x2col, degree=6):
     """

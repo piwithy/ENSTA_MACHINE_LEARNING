@@ -55,7 +55,6 @@ y = np.array(y.values)
 
 # tracer la figure
 plotData(X, y)
-
 # Labels and Legend
 plt.xlabel('Microchip Test 1')
 plt.ylabel('Microchip Test 2')
@@ -149,3 +148,4 @@ for Lambda in np.array([0,2,10,100]):
     plotDecisionBoundary(theta[0], X, y, Lambda)
     
 
+plt.show()
