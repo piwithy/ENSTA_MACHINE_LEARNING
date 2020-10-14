@@ -22,7 +22,7 @@ def gradientFunctionReg(theta, X, y, Lambda):
     # =============================================================
 
     grad = (1 / m) * X.T @ (sigmoid(X @ theta) - y) + (Lambda / m) * theta
-
+    grad[0] = ((1 / m) * X.T @ (sigmoid(X @ theta) - y))[0]
     # =============================================================
 
     return grad

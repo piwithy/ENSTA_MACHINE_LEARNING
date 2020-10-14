@@ -20,10 +20,14 @@ def costFunctionReg(theta, X, y, Lambda):
     #               You should set J to the cost.
     #               Compute the partial derivatives and set grad to the partial
     #               derivatives of the cost w.r.t. each parameter in theta
-    h_theta = sigmoid(X @ theta)
-    inner_left = sum(-(y * np.log(h_theta) + (1 - y) * np.log(1-h_theta)))/m
-    inner_right = (Lambda/(2*m)) * np.dot(theta.T, theta)
-    J = inner_left + inner_right
+    #h_theta = sigmoid(X @ theta)
+    #inner_left = sum(-(y * np.log(h_theta) + (1 - y) * np.log(1 - h_theta))) / m
+    #inner_right = (Lambda / (2 * m)) * (np.linalg.norm(theta[:1]) ** 2)
+    #J = inner_left + inner_right
+    term1 = -(y.T @ (np.log(sigmoid(X@theta))))
+    term2 = (1-y).T@(np.log(1-sigmoid(X@theta)))
+    term3 = (np.linalg.norm(theta[1:])**2) * (Lambda/(2*m))
+    J = (1/m) * (term1-term2) + term3
     # =============================================================
 
     # =============================================================
