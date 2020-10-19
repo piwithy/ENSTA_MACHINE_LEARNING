@@ -24,7 +24,8 @@ def lrCostGradient(theta, X, y, Lambda):
     #       the cost function and gradient computations. 
     #
 
-    grad = (1 / m) * X.T @ (sigmoid(X @ theta) - y)
+    grad = (1 / m) * X.T @ (sigmoid(X @ theta) - y) + (Lambda / m) * theta
+    grad[0] = ((1 / m) * X.T @ (sigmoid(X @ theta) - y))[0]
 
     # =============================================================
 
