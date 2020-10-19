@@ -42,5 +42,5 @@ def displayData(X):
     plt.set_cmap('gray')
 # Do not show axis
     plt.axis('off')
-    plt.show()
+    #plt.show()
 

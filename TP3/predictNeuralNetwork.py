@@ -10,6 +10,7 @@ def predictNeuralNetwork(Theta1, Theta2, X):
 # Useful values
     m, _ = X.shape
     num_labels, _ = Theta2.shape
+    p = np.zeros((m, 1))
 
 # ====================== YOUR CODE HERE ======================
 # Instructions: Complete the following code to make predictions using

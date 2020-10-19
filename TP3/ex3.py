@@ -92,7 +92,6 @@ print('Expected gradients: 0.14656137  0.05144159  0.12472227  0.19800296')
 
 
 
-
 ## Prediction
 
 # Add ones to the X data matrix
@@ -112,7 +111,9 @@ pred = predictOneVsAll(all_theta, X)
 
 
 # Evaluation
-accuracy = np.mean(np.double(pred == np.squeeze(y))) * 100
+sqy = np.squeeze(y)
+diff = sqy-pred
+accuracy = np.mean(np.double(pred == sqy)) * 100
 print('\n -------------------------- \n')
 print('Training Set Accuracy: %f\n' % accuracy)
 print('Expected approx accuracy: 96.46%')
@@ -120,3 +121,4 @@ print('Expected approx accuracy: 96.46%')
 #fig = plt.figure()  # open a new figure window
 #plt.plot(np.arange(1, 5001), y, 'ro', markersize=10)
 #plt.plot(np.arange(1, 5001), pred, 'bx', markersize=10)
+#plt.show()
