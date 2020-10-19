@@ -16,7 +16,7 @@ def predictOneVsAll(all_theta, X):
 
     # You need to return the following variables correctly
     p = np.zeros((m, 1))
-    probs = np.zeros((all_theta.shape[0], X.shape[0]))
+    # probs = np.zeros((all_theta.shape[0], X.shape[0]))
     # ====================== YOUR CODE HERE ======================
     # Instructions: Complete the following code to make predictions using
     #               your learned logistic regression parameters (one-vs-all).
@@ -29,10 +29,12 @@ def predictOneVsAll(all_theta, X):
     #       If your examples are in rows, then, you can use
     #       np.argmax(probs, axis=1) to obtain the max for each row.
     #
-    for i in range(all_theta.shape[0]):
-        probs[i, :] = sigmoid(X @ all_theta[i, :])
 
-    p = (np.argmax(probs, axis=0) + 1)
+    p = np.argmax(sigmoid(np.dot(all_theta, X.T)), axis=0) + 1
+
+    # for i in range(all_theta.shape[0]):
+    #    probs[i,:] = sigmoid(X @ all_theta[i,:])
+    # p = (np.argmax(probs, axis=0) + 1)
 
     # =========================================================================
 
