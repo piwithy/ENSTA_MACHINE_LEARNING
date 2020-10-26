@@ -1,4 +1,4 @@
-#%% Machine Learning Online Class - Exercise 3 | Part 2: Neural Networks
+# %% Machine Learning Online Class - Exercise 3 | Part 2: Neural Networks
 
 #  Instructions
 #  ------------
@@ -16,22 +16,20 @@
 #  For this exercise, you will not need to change any code in this file,
 #  or any other files other than those mentioned above.
 import numpy as np
-import scipy.io    # Used to load the OCTAVE *.mat files
+import scipy.io  # Used to load the OCTAVE *.mat files
 import scipy.misc  # Used to show matrix as an image
-import matplotlib.pyplot as plt
 
 from displayData import displayData
 from predictNeuralNetwork import predictNeuralNetwork
 
 if __name__ == "__main__":
-
     ## Setup the parameters you will use for this exercise
-    input_layer_size  = 400  # 20x20 Input Images of Digits
-    hidden_layer_size = 25   # 25 hidden units
-    num_labels        = 10  # 10 labels, from 1 to 10
-                              # (note that we have mapped "0" to label 10)
+    input_layer_size = 400  # 20x20 Input Images of Digits
+    hidden_layer_size = 25  # 25 hidden units
+    num_labels = 10  # 10 labels, from 1 to 10
+    # (note that we have mapped "0" to label 10)
 
-    #%% =========== Part 1: Loading and Visualizing Data =============
+    # %% =========== Part 1: Loading and Visualizing Data =============
     #  We start the exercise by first loading and visualizing the dataset.
     #  You will be working with a dataset that contains handwritten digits.
     #
@@ -40,25 +38,17 @@ if __name__ == "__main__":
     print('\n -------------------------- \n')
     print('Loading and Visualizing Data ...')
     datafile = 'ex3data1.mat'
-    mat = scipy.io.loadmat( datafile )
+    mat = scipy.io.loadmat(datafile)
     X, y = mat['X'], mat['y']
-    m,n = X.shape
+    m, n = X.shape
 
     # Randomly select 100 data points to display
     sel = np.random.permutation(range(m))
     sel = sel[0:100]
 
-    displayData(X[sel,:])
+    displayData(X[sel, :])
 
-
-
-
-
-
-
-
-
-    #%% ================ Part 2: Loading Pameters ================
+    # %% ================ Part 2: Loading Pameters ================
     # In this part of the exercise, we load some pre-initialized
     # neural network parameters.
     print('\n -------------------------- \n')
@@ -69,12 +59,7 @@ if __name__ == "__main__":
     Theta1 = data['Theta1']
     Theta2 = data['Theta2']
 
-
-
-
-
-
-    #%% ================= Part 3: Implement Predict =================
+    # %% ================= Part 3: Implement Predict =================
     #  After training the neural network, we would like to use it to predict
     #  the labels. You will now implement the "predict" function to use the
     #  neural network to predict the labels of the training set. This lets
@@ -91,20 +76,15 @@ if __name__ == "__main__":
     print('Training Set Accuracy:', np.mean(np.double(pred == np.squeeze(y))) * 100)
     print('Expected training Set Accuracy: 97.5%')
 
-
-
-
-
-
     #  To give you an idea of the network's output, you can also run
     #  through the examples one at the a time to see what it is predicting.
 
     #  Randomly permute examples
-    #rp = np.random.permutation(range(m))
-    #X = X[:,1:]
-    #plt.figure()
-    #for i in range(m):
-        # Display
+    # rp = np.random.permutation(range(m))
+    # X = X[:,1:]
+    # plt.figure()
+    # for i in range(m):
+    # Display
     #    X2 = np.array([X[rp[i],:]])
     #    displayData(X2)
     #
@@ -118,3 +98,10 @@ if __name__ == "__main__":
     #    plt.pause(1)
     #    plt.close()
 
+    print("""
+    
+on cherche à évaluer un chiffre à partir d'une écriture manuscrite. On va donc utiliser l'approche multiclasse afin de mettre chaque chiffre dans la classe spécifiée correspondante (0 dans 0, 1 dans 1, ....)
+
+Dans les possibilités de l'approche multiclasse, on choisit de passer en force brute où l'on évalue pour chaque élément du dataset la probabilité d'appartenir à une classe (détection multiclasse).
+
+Sinon, à partir d'un réseau de neurone simple entrainé à classifier les éléments, on va augmenter la rapidité car on ne va apprendre qu'une seule fois à classifier au lieu d'apprendre à chaque fois comme au début. Les calculs du réseau de neurones seront plus nombreux mais plus simple car on travaille sur des matrices de taille réduite.""")

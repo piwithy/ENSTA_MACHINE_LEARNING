@@ -30,7 +30,6 @@ def predictNeuralNetwork(Theta1, Theta2, X):
     in_1 = np.ones((_, X.shape[0]))
     in_1[:-1, :] = np.dot(Theta1, X.T)
 
-    z_2 = np.ones((Theta1.shape[1], X.shape[0]))
     z_2 = np.dot(Theta1, X.T)
     a_2 = np.ones((_, X.shape[0]))
     a_2[1:, :] = sigmoid(z_2)
