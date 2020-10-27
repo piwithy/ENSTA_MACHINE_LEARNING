@@ -104,4 +104,5 @@ on cherche à évaluer un chiffre à partir d'une écriture manuscrite. On va do
 
 Dans les possibilités de l'approche multiclasse, on choisit de passer en force brute où l'on évalue pour chaque élément du dataset la probabilité d'appartenir à une classe (détection multiclasse).
 
-Sinon, à partir d'un réseau de neurone simple entrainé à classifier les éléments, on va augmenter la rapidité car on ne va apprendre qu'une seule fois à classifier au lieu d'apprendre à chaque fois comme au début. Les calculs du réseau de neurones seront plus nombreux mais plus simple car on travaille sur des matrices de taille réduite.""")
+Sinon, à partir d'un réseau de neurone simple entrainé à classifier les éléments, on va augmenter la rapidité car on ne va apprendre qu'une seule fois à classifier au lieu d'apprendre à chaque fois comme au début. Les calculs du réseau de neurones seront plus nombreux mais plus simple car on travaille sur des matrices de taille réduite.
+""")
