@@ -217,8 +217,9 @@ print(X_poly[0, :])
 #  Lambda to see how the fit and learning curve change.
 #
 
+print("prout")
 # Train polynomial regression model
-Lambda = 0
+Lambda = 1
 theta = trainLinearReg(X_poly, y, Lambda, method='BFGS', maxiter=10)
 
 
@@ -233,10 +234,11 @@ plt.ylabel('Water flowing out of the dam (y)')     # Set the x-axis label
 # plt.plot(X, np.column_stack((np.ones(m), X)).dot(theta), marker='_',  lw=2.0)
 plt.title('Polynomial Regression Fit (Lambda = %f)' % Lambda)
 plt.grid()
-plt.show()
+#plt.show()
 
 
 # Plot Learning curves (Error vs Number of training examples)
+print("prout2")
 error_train, error_val = learningCurve(X_poly, y, X_poly_val, yval, Lambda)
 plt.figure()
 plt.plot(range(m), error_train, label='Train',lw=2)
@@ -248,6 +250,7 @@ plt.xlim(0, 13)
 plt.ylim(0, 150)
 plt.legend()
 plt.grid()
+plt.show()
 
 print('Polynomial Regression (Lambda = %f)\n\n' % Lambda)
 print('# Training Examples\tTrain Error\tCross Validation Error')
@@ -272,6 +275,7 @@ plt.legend()#'Train', 'Cross Validation'
 plt.xlabel('Lambda')
 plt.ylabel('Error')
 plt.grid()
+plt.show()
 
 print('Lambda\tTrain Error\tValidation Error')
 for i in range(Lambda_vec.size):
