@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def linearRegCostFunction(X, y, theta, Lambda):
     """computes the
     cost of using theta as the parameter for linear regression to fit the
@@ -21,9 +24,10 @@ def linearRegCostFunction(X, y, theta, Lambda):
 
     # Lambda_theta = Lambda * theta
 
-    grad = (1 / m) * ((X.T @ (h_theta - y)) + (Lambda * theta)[:1])
-    grad[0] = (1 / m) * (X.T @ (h_theta - y))[0]
+    reg = (Lambda * theta)
+    reg[0] = 0
+
+    grad = (1 / m) * ((X.T @ (h_theta - y)) + reg)
 
     # =========================================================================
-
     return J.flatten(), grad.flatten()

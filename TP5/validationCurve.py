@@ -1,6 +1,8 @@
 import numpy as np
 
 from learningCurve import learningCurve
+from trainLinearReg import trainLinearReg
+from linearRegCostFunction import linearRegCostFunction
 
 
 def validationCurve(X, y, Xval, yval):
@@ -40,11 +42,16 @@ def validationCurve(X, y, Xval, yval):
     #
     #
 
+    # for i in range(lambda_vec.size):
+    #    Lambda = lambda_vec[i]
+    #    error_train_i, error_val_i = learningCurve(X, y, Xval, yval, Lambda)
+    #    error_train[i] = np.mean(error_train_i)
+    #    error_val[i] = np.mean(error_val_i)
     for i in range(lambda_vec.size):
-        Lambda = lambda_vec[i]
-        error_train_i, error_val_i = learningCurve(X, y, Xval, yval, Lambda)
-        error_train[i] = np.mean(error_train_i)
-        error_val[i] = np.mean(error_val_i)
+        lambda_val = lambda_vec[i]
+        theta = trainLinearReg(X, y, lambda_val)
+        error_train[i] = linearRegCostFunction(X, y, theta, 0)[0]
+        error_val[i] = linearRegCostFunction(Xval, yval, theta, 0)[0]
 
     # =========================================================================
 
