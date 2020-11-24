@@ -12,23 +12,23 @@ def displayFeatures2d(feat, group=None):
         - displayFeatures2d(feat,group) si on a les classes d'appartenance de
         chaque pixel
     '''
-    
+
     # if
     if group is None:
         group = 'b'
-    
-    
+
+
     #transform to pandas dataframe
-    df = pd.DataFrame(feat, columns=['red', 'green', 'blue'])  
+    df = pd.DataFrame(feat, columns=['red', 'green', 'blue'])
 
     # Affichage
-    axes = pd.tools.plotting.scatter_matrix(df,figsize=[10,10],c=group, diagonal='hist', grid=True)
+    #axes = pd.tools.plotting.scatter_matrix(df,figsize=[10,10],c=group, diagonal='hist', grid=True)
     # Sur certaines versions de pandas, il faut enleevr tools.
-    #axes = pd.plotting.scatter_matrix(df,figsize=[10,10],c=group, diagonal='hist', grid=True)
+    axes = pd.plotting.scatter_matrix(df,figsize=[10,10],c=group, diagonal='hist', grid=True)
 
     #    axes.grid()
     #    plt.title('Nuage de points et histogramme')
-    
-    
+
+
 
     return axes
